@@ -27,7 +27,7 @@ class NetworkModule{
     }
 
     @Provides
-    fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    fun providesUserRetrofit(okHttpClient: OkHttpClient): Retrofit {
 
         return Retrofit.Builder()
             .client(okHttpClient)
@@ -36,6 +36,7 @@ class NetworkModule{
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
+
 
     @Provides
     fun providesOkHttpClient():OkHttpClient{

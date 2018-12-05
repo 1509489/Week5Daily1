@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.pixelart.week5daily1.R
+import com.pixelart.week5daily1.common.GlideApp
 import com.pixelart.week5daily1.databinding.RecyclerviewLayoutBinding
 import com.pixelart.week5daily1.model.UserData
 import kotlinx.android.synthetic.main.recyclerview_layout.view.*
@@ -29,6 +30,12 @@ class RecyclerViewAdapter(val users: List<UserData>, val listener: RecyclerViewA
         holder.itemView.apply {
             tvUserName.text = user.userName
 
+            GlideApp.with(context)
+            .load(user.avatar)
+            .override(300, 200)
+            .into(ivAvatar)
+
+            tvRepositories.text = user.repos
         }
 
         holder.itemView.setOnClickListener {
